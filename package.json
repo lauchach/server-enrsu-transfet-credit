@@ -1,0 +1,31 @@
+{
+  "name": "cpe492-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lauchach@github.com/lauchach/server-enrsu-transfet-credit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauchach/server-enrsu-transfet-credit/issues"
+  },
+  "homepage": "https://github.com/lauchach/server-enrsu-transfet-credit#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "firebase": "^9.6.7",
+    "firebase-admin": "^10.0.2"
+  }
+}
