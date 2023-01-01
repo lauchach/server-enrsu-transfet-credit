@@ -14,8 +14,8 @@ exports.login = async (req, res) => {
     if (!snapshot) return res.status(200).json(response(1011, data))
     if (snapshot.password !== password) return res.status(200).json(response(Response.code.passwordNotMatch, data))
     data = snapshot
-    console.log('res.status(200).json(response(0, data))', res.status(200).json(response(0, data)))
-    // return res.status(200).json(response(0, data))
+    // console.log('res.status(200).json(response(0, data))', res.status(200).json(response(0, data)))
+    return res.status(200).json(response(0, data))
   } catch (error) {
     console.log(error)
     return res.status(999).json({ status: { code: 999 }, data })
@@ -65,14 +65,14 @@ exports.updateProfile = async (req, res) => {
   console.log('/user/profile/update :: req.body ::', req.body)
   try {
     let docId = ''
-    const { email, detail } = req.body
+    const { email, status, detail } = req.body
     const [snapshot] = (await db.collection('users').where('email', '==', email).get()).docs.map(doc => {
       docId = doc.id
       return doc.data()
     })
     if (!snapshot) return res.status(999).json({ status: { code: 999 }, data })
-    const _data = { detail }
-    const resDB = await db.collection('users').doc(docId).update(_data)
+    console.log('status', status)
+    const resDB = status ? await db.collection('users').doc(docId).update({ status: status, detail: detail }) : await db.collection('users').doc(docId).update({ detail })
     if (resDB) return res.status(200).json(response(0, data))
     return res.status(999).json({ status: { code: 999 }, data })
   } catch (error) {
