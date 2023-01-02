@@ -9,6 +9,9 @@ const router = express.Router()
   router.route('/record/fetch')
   .post(controller.recordFetch)
 
+  router.route('/record/fetch/full')
+  .post(controller.recordFetchFull)
+
   router.route('/record/list')
   .post(controller.recordList)
 

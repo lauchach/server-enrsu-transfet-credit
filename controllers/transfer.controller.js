@@ -8,8 +8,12 @@ exports.userUpdate = async (req, res) => {
   try {
     const { email, data } = req.body
     console.log('10email, data', email, data)
+    let docId = ''
     if (!data) return res.status(200).json(response(1022, data))
-    const [snapshot] = (await db.collection('users').where('email', '==', email).get()).docs.map(doc => doc.data())
+    const [snapshot] = (await db.collection('users').where('email', '==', email).get()).docs.map(doc => {
+      docId = doc.id
+      return doc.data()
+    })
     // let oldData = (await db.collection('record').doc(snapshot.detail.rsuId).get()).data()
     // if (oldData) {
     //   for (const element of data) {
@@ -23,6 +27,7 @@ exports.userUpdate = async (req, res) => {
       subjects: data
     }
     await db.collection('record').doc(snapshot.detail.rsuId).set(_data)
+    if (docId) await db.collection('users').doc(docId).update({ status: 'รอการเทียบโอน' })
     return res.status(200).json(response(0, _data))
   } catch (error) {
     console.log('error', error)
@@ -57,6 +62,34 @@ exports.recordFetch = async (req, res) => {
     const [snapshot] = (await db.collection('record').where('rsuId', '==', rsuId).get()).docs.map(doc => doc.data())
     const data = snapshot || {}
     return res.status(200).json(response(0, data))
+  } catch (error) {
+    console.log(error)
+    return res.status(999).json({ status: { code: 999 } })
+  }
+}
+
+exports.recordFetchFull = async (req, res) => {
+  try {
+    const { rsuId } = req.body
+    console.log('54rsuId', rsuId)
+    const [snapshot] = (await db.collection('record').where('rsuId', '==', rsuId).get()).docs.map(doc => doc.data())
+    let data = snapshot || {}
+    let mapRsuDatas = []
+    if (data) {
+      for (let index = 0; index <  data.mapRsuDatas.length; index++) {
+        let [_data] = (await db.collection('SUBJECT_RSU_TABLE').where('Subject_id', '==', data.mapRsuDatas[index].SubjecteRSUId).get()).docs.map(doc => doc.data())
+        mapRsuDatas = [ ...mapRsuDatas, { ...data.mapRsuDatas[index], ..._data } ]
+        
+        data.mapRsuDatas[index].SubjectIds.forEach((v, i, a) => {
+          let __data = data.subjects.find(y => y.subjectid === v.subjectid)
+          if (__data) data.mapRsuDatas[index].SubjectIds[i] = {...data.mapRsuDatas[index].SubjectIds[i], ...__data}
+        })
+      }
+      return res.status(200).json(response(0, {
+        rsuId,
+        mapRsuDatas: mapRsuDatas,
+      }))
+    }
   } catch (error) {
     console.log(error)
     return res.status(999).json({ status: { code: 999 } })

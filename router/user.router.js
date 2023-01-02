@@ -15,4 +15,7 @@ const router = express.Router()
   router.route('/profile/update')
   .post(controller.updateProfile)
 
+  router.route('/profile/edit/status')
+  .post(controller.editStatus)
+
 module.exports = router

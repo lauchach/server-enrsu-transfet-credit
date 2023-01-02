@@ -79,3 +79,23 @@ exports.updateProfile = async (req, res) => {
     return res.status(999).json({ status: { code: 999 }, data })
   }
 }
+
+exports.editStatus = async (req, res) => {
+  let data = {}
+  console.log('/user/profile/edit/status :: req.body ::', req.body)
+  try {
+    let docId = ''
+    const { rsuId, status } = req.body
+    const [snapshot] = (await db.collection('users').where('detail.rsuId', '==', rsuId).get()).docs.map(doc => {
+      docId = doc.id
+      return doc.data()
+    })
+    if (!snapshot) return res.status(999).json({ status: { code: 999 }, data })
+    console.log('status', status)
+    const resDB = await db.collection('users').doc(docId).update({ status: status })
+    if (resDB) return res.status(200).json(response(0, data))
+    return res.status(999).json({ status: { code: 999 }, data })
+  } catch (error) {
+    return res.status(999).json({ status: { code: 999 }, data })
+  }
+}
