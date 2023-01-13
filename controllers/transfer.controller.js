@@ -85,9 +85,26 @@ exports.recordFetchFull = async (req, res) => {
           if (__data) data.mapRsuDatas[index].SubjectIds[i] = {...data.mapRsuDatas[index].SubjectIds[i], ...__data}
         })
       }
+      // cols 
+      let cols = []
+      mapRsuDatas.forEach((v) => {
+        v.SubjectIds.forEach((y, i, a) => {
+        cols = [...cols, {
+          rsuSubjecteId: i < 1 ? v.SubjecteRSUId : '',
+          rsuSubjectName: i < 1 ? v.Subject_Name : '',
+          rsuSubjectCredit: i < 1 ? v.Subject_Credit : '',
+          rsuSubjectGrade: i < 1 ? '+C' : '',
+          subjectid: y.subjectid,
+          subjectGrade: y.subjectGrade,
+          subjectCredit: y.subjectCredit,
+          subjectName: y.subjectName,
+         }]
+        })
+      })
+      // console.log('103cols', cols)
       return res.status(200).json(response(0, {
         rsuId,
-        mapRsuDatas: mapRsuDatas,
+        cols,
       }))
     }
   } catch (error) {

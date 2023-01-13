@@ -63,7 +63,7 @@ exports.getProfile = async (req, res) => {
 exports.updateProfile = async (req, res) => {
   let data = {}
   console.log('/user/profile/update :: req.body ::', req.body)
-  try {
+  try {// check rsuid
     let docId = ''
     const { email, status, detail } = req.body
     const [snapshot] = (await db.collection('users').where('email', '==', email).get()).docs.map(doc => {

@@ -25,10 +25,12 @@ app.options('*', cors())
 
 const userRouter = require('./router/user.router')
 const transferRouter = require('./router/transfer.router')
+const uploadRouter = require('./router/upload.router')
 
 
 app.use('/user', userRouter)
 app.use('/transfer', transferRouter)
+app.use('/upload', uploadRouter)
 
 
 // app.post('/user/login', async (req, res) => {
