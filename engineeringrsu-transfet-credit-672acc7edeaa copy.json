@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "engineeringrsu-transfet-credit",
+  "private_key_id": "672acc7edeaace2c19cd7c4f11bf977e6bd7d3a5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCi+HHgp19dat07\nwH74hIZ7+j5y4qkTErF6un6W/OFyJiOrE06B+cHN0p1avdFNKX2DsxiCiZ0qXE91\nydeFZLGU0I4jnMxGd58oBFgd+e2ViIlhfQTLkcdjQsUQU6gxC6oAVwgkJZHJuyXf\nJlfNn5Vh5IXlwbBRvxm65VsJbnHg7MdjS9sIf1oFORp7q1brlpz53gIMUVQJ9ZTs\n9LVY8Li/yTCMTdOBCZh/ZuHTqGFH4gkul2bGq5zZx0+ygH+jLM5UOMBrmrReKES+\nvmLwWk78huXR+S6ke5KZJvWBmP9O9xDXO0RzBeq98YeYH2rv3IW5GJOF6CTIQz+S\nYrTY7cKLAgMBAAECggEAEOxWuvr2crd1qM5JARqV8orecESsRQBEcNer7Jbu/FEM\nlCfJl8KtRufPkkwyz133HDV9XpTWvr7eO3+Nw1rc+/SaRgVyywCCBQBKfDZnXwdS\nKM74MAF/4IVe/F6LkShCa42eGU7TcEzgVmdfZ8liFEvMQbsWya5cCCXoCbcv2Sji\n2fZ8ZlscijK8u5GN6j4aT/Tp6+JJ54SmwI4RA7W8kaNSix8xRfzxUERI3lVQOFci\nxkuQoUQk5IhPtE3xXgM9+cKuIoYzifW8I8241i1b7cjRCiwhu9MTUsvxkiC/LdA2\nlpQnAtnuxol+TTvj4H/NvdyM4sPY3WF5xxYt/H7tKQKBgQDaPGX2LssPwDWjvS9t\n5MtHVej6OUxi4tsTTEVWfLGz0Hm0JttXUYhzAA0hCNfS0KKV3AQrwNY2Ptev2XzV\nC1NO9CDC5dyLBvd4XiE7cJWmQ2LI/YQ/kh/iz3SzBVoi1rJGJ94tqlkaEuMUg4gg\nokbLuAIKea23qt0IT15XpSwRowKBgQC/K9nJW80LuGRivUT9l3eZDBcdpkkEa3Ns\nAlg6oAgDZbGyNX71fg8GaxJQY6m78EQXgMFtNbDBl9zTdBCGWejiGaHD4tTSuOO3\n1lcgKuqhC0SLdfnktcDQPK4qG2iMNmMiHShUCt0XXqpu1wr+rdH6t6sOKUJvBlPV\njNwvz6Sp+QKBgGZtKJHF3opy9Pn3phYW5w2BFcqzL9XNkXLaPkTcW28Ars5N2m5+\nFuOap47Unq8UOurJC7AZXrCxB/xBwGQhX6VT0TiIN92MlIOK8l/6dFJHmEqrKfHI\nPGzwX15Sab6mM5/XwGCAbjddm/SZ0z81yrJ8l4ChIVZtvDXVQnsyS5+vAoGAVYj+\nQez0Opk/OTqsQrbhyTWypg5/vx2AoEQQS/LMgxCeSDlNW/QSLvH7WMKu8CsZnFZ8\ntSt/sa8MHARjXGmgHIIRcf7s8HfPU7LwerEZGANdoPShYea8pa9w0eA/j/TJuDrJ\nj4jo0YsGwN8wyTDmscI6I/TsB5cSLYt//VhvuakCgYEAy7QTzw8ND8tuyV7BgT6p\nRfmIGiwoIcqzp/HH6HmAIHR22cWynFUD9N6dNOV7maz8ZdY9alTAMOOQK6xoUd51\nzFwxSf9v6s/06oJztc2Ra7Ypog/DlE/lz3dxz4XRKvM84TvUy1BfQu8H9omFYRfR\nzxSxU5JT6+4LTgFJYlVcmxk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "engineeringrsu-transfet-credit@appspot.gserviceaccount.com",
+  "client_id": "109061645144768172940",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/engineeringrsu-transfet-credit%40appspot.gserviceaccount.com"
+}
